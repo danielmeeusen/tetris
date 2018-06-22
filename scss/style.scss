@@ -1,0 +1,15 @@
+$darkBlue:#202028;
+$white: #fff;
+
+body {
+    background-color: $darkblue;
+    color:$white;
+    font-family: sans-serif;
+    font-size: 2em;
+    text-align: center;
+}
+
+canvas {
+    border: solid .2em $white;
+    height: 80vh;
+}
