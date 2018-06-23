@@ -11,5 +11,9 @@ body {
 
 canvas {
     border: solid .2em $white;
-    height: 80vh;
+    height: 70vh;
+}
+
+#score {
+	margin-top: 5%;
 }
