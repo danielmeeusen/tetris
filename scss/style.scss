@@ -1,8 +1,9 @@
 $darkBlue:#202028;
 $white: #fff;
+$black: #000;
 
 body {
-    background-color: $darkblue;
+    background-color: $darkBlue;
     color:$white;
     font-family: sans-serif;
     font-size: 2em;
@@ -11,7 +12,7 @@ body {
 
 canvas {
     border: solid .2em $white;
-    height: 70vh;
+    height: 65vh;
 }
 
 #score {
