@@ -3,6 +3,7 @@ $white: #fff;
 $black: #000;
 
 body {
+    display: flex;
     background-color: $darkBlue;
     color:$white;
     font-family: sans-serif;
@@ -10,11 +11,24 @@ body {
     text-align: center;
 }
 
+.player {
+   flex: 1 1 auto;
+}
+
 canvas {
-    border: solid .2em $white;
+    border: solid .1em $white;
     height: 65vh;
 }
 
 #score {
 	margin-top: 5%;
 }
+
+$I: #03A9F4 ;
+$J: #9C27B0;
+$L: #FFC107;
+$O: #E91E63;
+$S: #00BCD4; 
+$T: #8BC34A;
+$Z: #3F51B5;
+            
