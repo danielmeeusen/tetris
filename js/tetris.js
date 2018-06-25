@@ -1,4 +1,4 @@
-const canvas = document.getElementById('tetris');
+const canvas = document.querySelector('tetris');
 const context = canvas.getContext('2d');
 
 context.scale(20, 20);
@@ -192,7 +192,7 @@ function update(time = 0){
 }
 
 function updateScore(){
-  document.getElementById('score').innerText = player.score;
+  document.querySelector('score').innerText = player.score;
 }
 
 const colors = [null, '#009688' , '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#673ab7', '#2196f3'];
