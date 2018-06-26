@@ -46,7 +46,7 @@ class Arena{
           this.matrix.unshift(row);
           y++;
       
-          score += rowCount * 10;
+          score += rowCount * 100;
           rowCount *= 2;
         }
         return score;
