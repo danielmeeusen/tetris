@@ -1,4 +1,4 @@
-const canvas = document.querySelector('tetris');
+const canvas = document.querySelector('.tetris');
 const context = canvas.getContext('2d');
 
 context.scale(20, 20);
@@ -41,49 +41,49 @@ function createMatrix(w, h){
 }
 
 function createPiece(type){
-  if(type === 'T'){
+  if (type === 'I'){
     return [
-      [0, 0, 0],
-      [1, 1, 1],
-      [0, 1, 0]
+      [0, 1, 0, 0],
+      [0, 1, 0, 0],
+      [0, 1, 0, 0],
+      [0, 1, 0, 0]
+    ];
+  } else if (type === 'J'){
+    return [
+      [0, 2, 0],
+      [0, 2, 0],
+      [2, 2, 0]
+    ];
+  } else if (type === 'L'){
+    return [
+      [0, 3, 0],
+      [0, 3, 0],
+      [0, 3, 3]
     ];
   } else if (type === 'O'){
     return [
-      [2,2],
-      [2,2]
+      [4,4],
+      [4,4]
     ];
-  } else if (type === 'L'){
-  return [
-    [0, 3, 0],
-    [0, 3, 0],
-    [0, 3, 3]
-  ];
-} else if (type === 'J'){
-  return [
-    [0, 4, 0],
-    [0, 4, 0],
-    [4, 4, 0]
-  ];
-} else if (type === 'I'){
-  return [
-    [0, 5, 0, 0],
-    [0, 5, 0, 0],
-    [0, 5, 0, 0],
-    [0, 5, 0, 0]
-  ];
-} else if (type === 'S'){
-  return [
-    [0, 6, 6],
-    [6, 6, 0],
-    [0, 0, 0]
-  ];
-} else if (type === 'Z'){
-  return [
-    [7, 7, 0],
-    [0, 7, 7],
-    [0, 0, 0]
-  ];
-} 
+  } else if (type === 'S'){
+    return [
+      [0, 5, 5],
+      [5, 5, 0],
+      [0, 0, 0]
+    ];
+    } else if (type === 'T'){
+      return [
+        [0, 0, 0],
+        [6, 6, 6],
+        [0, 6, 0]
+      ];
+  } else if (type === 'Z'){
+    return [
+      [7, 7, 0],
+      [0, 7, 7],
+      [0, 0, 0]
+    ];
+  }
 }
 
 function draw(){
@@ -135,7 +135,7 @@ function playerMove(dir){
 }
 
 function playerReset(){
-  const pieces = 'ILJOTSZ';
+  const pieces = 'IJLOSTZ';
   player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
   player.pos.y = 0;
   player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
@@ -192,11 +192,19 @@ function update(time = 0){
 }
 
 function updateScore(){
-  document.querySelector('score').innerText = player.score;
+  document.querySelector('.score').innerText = player.score;
 }
 
-const colors = [null, '#009688' , '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#673ab7', '#2196f3'];
-
+const colors = [
+  null, 
+  '#03A9F4',//I
+  '#9C27B0',//J
+  '#FFC107',//L
+  '#E91E63',//O
+  '#00BCD4',//S 
+  '#8BC34A',//T
+  '#3F51B5'//Z
+];
 
 const arena = createMatrix(12, 20);
 
@@ -223,3 +231,4 @@ document.addEventListener('keydown', e => {
 playerReset();
 update();
 updateScore();
+
