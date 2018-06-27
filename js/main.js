@@ -3,6 +3,18 @@ const context = canvas.getContext('2d');
 
 context.scale(20, 20);
 
+const player = {
+  pos: {x: 0, y: 0},
+  matrix: null,
+  score: 0,
+  level: 1,
+  dropInterval: 1000,
+  DROP_SLOW: 1000,
+};
+
+let dropCounter = 0;
+let DROP_FAST = 50;
+
 function arenaSweep(){
   let rowCount = 1;
   outer: for(y=arena.length - 1; y > 0; y--){
@@ -15,8 +27,15 @@ function arenaSweep(){
     arena.unshift(row);
     y++;
 
-    player.score += rowCount * 10;
+    player.score += rowCount * 100;
     rowCount *= 2;
+    let scoreStr = player.score.toString();
+    if(scoreStr.length > 3){
+      let num = Number(scoreStr.slice(0, scoreStr.length - 3));
+      player.level = num + 1;
+      player.dropInterval = 1000 - (num * 100);
+      player.DROP_SLOW = 1000 - (num * 100);
+    }
   }
 }
 
@@ -142,6 +161,9 @@ function playerReset(){
   if(collide(arena, player)){
     arena.forEach(row => row.fill(0));
     player.score = 0;
+    player.level = 1;
+    player.intervalDrop = 1000;
+    player.DROP_SLOW = 1000;
     updateScore();
   }
 }
@@ -175,16 +197,12 @@ function rotate(matrix, dir){
   }
 }
 
-let dropCounter = 0;
-let dropInterval = 1000;
-
 let lastTime = 0;
-
 function update(time = 0){
   const deltaTime = time - lastTime;
   lastTime = time;
   dropCounter += deltaTime;
-  if(dropCounter > dropInterval) {
+  if(dropCounter > player.dropInterval) {
     playerDrop();
   }
   draw();
@@ -192,7 +210,8 @@ function update(time = 0){
 }
 
 function updateScore(){
-  document.querySelector('.score').innerText = player.score;
+  document.querySelector('.score').innerHTML = `<p> Score: ${player.score}</p>`;
+  document.querySelector('.level').innerHTML = `<p> Level: ${player.level}</p>`;
 }
 
 const colors = [
@@ -208,25 +227,33 @@ const colors = [
 
 const arena = createMatrix(12, 20);
 
-const player = {
-  pos: {x: 0, y: 0},
-  matrix: null,
-  score: 0,
-}
-
-document.addEventListener('keydown', e => {
-  if(e.keyCode === 37){
-    playerMove(-1)
-  }else if(e.keyCode === 39){
-    playerMove(1);
-  } else if(e.keyCode === 40){
-    playerDrop();
-  } else if(e.keyCode === 81){
-    playerRotate(-1);
-  } else if(e.keyCode === 87 || e.keyCode === 38){
-    playerRotate(1);
+function keyListener(e){
+  if(e.type === 'keydown'){
+    if(e.keyCode === 37){
+      playerMove(-1)
+    } else if(e.keyCode === 39){
+      playerMove(1);
+    } else if(e.keyCode === 81){
+      playerRotate(-1);
+    } else if(e.keyCode === 87 || e.keyCode === 38){
+      playerRotate(1);
+    }
   }
-});
+
+  if (e.keyCode === 40) {
+    if (e.type === 'keydown') {
+        if (player.dropInterval !== DROP_FAST) {
+            playerDrop();
+            player.dropInterval = DROP_FAST;
+        }
+    } else {
+        player.dropInterval = player.DROP_SLOW;
+    }
+  }
+};
+
+document.addEventListener('keydown', keyListener);
+document.addEventListener('keyup', keyListener);
 
 playerReset();
 update();
