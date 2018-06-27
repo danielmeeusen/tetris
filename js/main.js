@@ -1,7 +1,14 @@
 const canvas = document.querySelector('.tetris');
 const context = canvas.getContext('2d');
 
+const nextCanvas = document.querySelector('.next');
+const nextContext = nextCanvas.getContext('2d');
+
 context.scale(20, 20);
+nextContext.scale(30, 30);
+
+const arena = createMatrix(12, 20);
+const nextArena = createMatrix(6, 6);
 
 const player = {
   pos: {x: 0, y: 0},
@@ -107,23 +114,27 @@ function createPiece(type){
 }
 
 function drawNext(){
-  
+  nextContext.fillStyle = '#000';
+  nextContext.fillRect(0, 0, nextCanvas.width, nextCanvas.height); 
+
+  drawMatrix(nextArena, {x: 0, y:0}, nextContext);
+  drawMatrix(player.next, {x: 1, y: 1}, nextContext);
 }
 
 function draw(){
   context.fillStyle = '#000';
   context.fillRect(0, 0, canvas.width, canvas.height);
 
-  drawMatrix(arena, {x: 0, y: 0});
-  drawMatrix(player.matrix, player.pos);
+  drawMatrix(arena, {x: 0, y: 0}, context);
+  drawMatrix(player.matrix, player.pos, context);
 }
 
-function drawMatrix(matrix, offset){
-  matrix.forEach((row, y) => {
+function drawMatrix(mat, offset, cont){
+  mat.forEach((row, y) => {
     row.forEach((value, x) =>{
       if(value !== 0){
-        context.fillStyle = colors[value];
-        context.fillRect(x + offset.x, y + offset.y, 1, 1);
+        cont.fillStyle = colors[value];
+        cont.fillRect(x + offset.x, y + offset.y, 1, 1);
       }
     });
   });
@@ -167,6 +178,7 @@ function playerReset(){
     player.matrix = player.next;
     player.next = createPiece(pieces[pieces.length * Math.random() | 0]);
   }
+  drawNext();
   player.pos.y = 0;
   player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
   if(collide(arena, player)){
@@ -235,8 +247,6 @@ const colors = [
   '#8BC34A',//T
   '#3F51B5'//Z
 ];
-
-const arena = createMatrix(12, 20);
 
 function keyListener(e){
   if(e.type === 'keydown'){

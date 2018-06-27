@@ -1,40 +1,50 @@
 $darkBlue:#202028;
 $white: #fff;
+$transBlack: rgba(0, 0, 0, .75);
+$transWhite: rgba(255, 255, 255, .75);
 
-body {
+body, html {
     min-width: 640px;
-    background-color: $darkBlue;
+    background: linear-gradient( rgba(0, 0, 0, .65), rgba(0, 0, 0, .0) );
+    background-image: url('https://s19.postimg.cc/53hmmyd9f/stars-3000x2000-pink-cosmos-hd-7164.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+	overflow-y: hidden;
     color:$white;
     font-family: sans-serif;
-    font-size: 1.5em;
-    text-align: center;
+    font-size: 1.4em;
+    height: 100%;
 }
 
 .wrapper {
-    margin: auto;
-    width: 800px;
+    display: flex;
+    justify-content: center;
+    padding: 3% 5%;
+    border-radius: 15px;
+    background: $transBlack;
+    margin: 1% auto;
+    width: 900px;
 }
 
 .detailsLeft {
-    width: 20%;
-    float: left;
-    margin-top: 5%;
+    margin-right: 4%;
+    margin-top: 3%;
     text-align: right;
     line-height: 16px;
   }
 
 .detailsRight {
-    width: 20%;
-    float: right;
-    margin-top: 5%;
+    margin-left: 4%;
+    margin-top: 3%;
     text-align: left;
     line-height: 16px;
 }
 
 .tetris {
-    margin-top: 5%;
-    border: solid .2em $white;
+    border: solid .25em $white;
     height: 80vh;
+    margin-bottom: 2%;
 }
 
 .next {
