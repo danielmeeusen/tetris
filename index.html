@@ -8,12 +8,18 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="details">
-    <div class="score"></div>
-    <div class="level"></div>
-</div>
-  
-  <canvas class="tetris" width="240" height="400"></canvas>
+  <div class="wrapper">
+    <div class="detailsLeft">
+      <div class="score"></div>
+      <div class="level"></div>
+    </div>
+
+    <canvas class="tetris" width="240" height="400"></canvas>
+
+    <div class="detailsRight">
+        <canvas class="next" width="160" height="160"></canvas>
+      </div>  
+  </div>
 
   <script src="js/main.js"></script>
 </body>

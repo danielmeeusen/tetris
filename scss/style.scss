@@ -2,7 +2,7 @@ $darkBlue:#202028;
 $white: #fff;
 
 body {
-    min-width: 540px;
+    min-width: 640px;
     background-color: $darkBlue;
     color:$white;
     font-family: sans-serif;
@@ -10,7 +10,12 @@ body {
     text-align: center;
 }
 
-.details {
+.wrapper {
+    margin: auto;
+    width: 800px;
+}
+
+.detailsLeft {
     width: 20%;
     float: left;
     margin-top: 5%;
@@ -18,11 +23,22 @@ body {
     line-height: 16px;
   }
 
-canvas {
-    margin-left: -20%;
+.detailsRight {
+    width: 20%;
+    float: right;
+    margin-top: 5%;
+    text-align: left;
+    line-height: 16px;
+}
+
+.tetris {
     margin-top: 5%;
     border: solid .2em $white;
     height: 80vh;
+}
+
+.next {
+    border: solid .1em $white;
 }
 
 @media (max-width: 768px){
@@ -31,7 +47,7 @@ canvas {
         text-align: center;
     }
     
-    .details {
+    .detailsLeft {
         width: 15%;
         float: left;
         margin-top: 5%;
@@ -42,6 +58,5 @@ canvas {
     canvas {
         margin-left: -5%;
         margin-top: 5%;
-        height: 70vh;
     }
 }

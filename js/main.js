@@ -10,6 +10,7 @@ const player = {
   level: 1,
   dropInterval: 1000,
   DROP_SLOW: 1000,
+  next: null,
 };
 
 let dropCounter = 0;
@@ -105,6 +106,10 @@ function createPiece(type){
   }
 }
 
+function drawNext(){
+  
+}
+
 function draw(){
   context.fillStyle = '#000';
   context.fillRect(0, 0, canvas.width, canvas.height);
@@ -155,7 +160,13 @@ function playerMove(dir){
 
 function playerReset(){
   const pieces = 'IJLOSTZ';
-  player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
+  if(player.next === null){
+    player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
+    player.next = createPiece(pieces[pieces.length * Math.random() | 0]);
+  } else {
+    player.matrix = player.next;
+    player.next = createPiece(pieces[pieces.length * Math.random() | 0]);
+  }
   player.pos.y = 0;
   player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
   if(collide(arena, player)){
