@@ -6,9 +6,23 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Tetris</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
 </head>
 <body>
   <div class="wrapper">
+
+      <div id="modal" class="modal">
+          <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+          </div>
+        </div>
+
     <div class="detailsLeft">
       <div class="score"></div>
       <div class="level"></div>
@@ -18,9 +32,23 @@
 
     <div class="detailsRight">
         <canvas class="next" width="160" height="160"></canvas>
+        <br>
+        <div class="controls">
+          <p><span style="font-size : 20px"><i class="fas fa-arrow-left"></i></span> Move Left</p>
+          <p><span style="font-size : 20px"><i class="fas fa-arrow-right"></i></span> Move Right</p>
+          <p><span style="font-size : 20px"><i class="fas fa-arrow-down"></i></span> Move Down</p>
+          <p><span style="font-size : 20px"><i class="fas fa-arrow-up"></i></span> Rotate Right</p>
+          <p><span style="font-size : 24px">Q</span> Rotate Left</p>
+          <p><span style="font-size : 24px">W</span> Rotate Right</p>
+          <p><span style="font-size : 20px">Esc</span> Pause Game</p>
+        </div>
       </div>  
   </div>
-
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
   <script src="js/main.js"></script>
+
+
 </body>
 </html>

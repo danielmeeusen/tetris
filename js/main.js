@@ -1,3 +1,8 @@
+// $(document).ready(function(){
+//   $('#modal').modal();
+//   $('#modal').modal('open'); 
+// });
+
 const canvas = document.querySelector('.tetris');
 const context = canvas.getContext('2d');
 
