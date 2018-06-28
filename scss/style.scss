@@ -11,24 +11,40 @@ body, html {
     font-family: 'Lucida Console';
     height: 100%;
     text-align: center;
+    min-width: 620px;
 }
 
 .wrapper {
     display: inline-flex;
     justify-content: center;
+    margin: 1% 0;
     padding: 3% 3%;
     background: $transBlack;
-    margin: 2%;
     box-shadow: -1px 5px 5px rgba(0, 0, 0, .75);;
 }
 
+.modal {
+    margin-top: 20vh !important;
+    border: solid .05em $white;
+    box-shadow: -15px 20px 20px rgba(0, 0, 0, .75) !important;
+}
+
+.modal-content {
+    background: $darkBlue;
+}
+
+.modal-content .btn {
+    font-size: 18px !important;
+}
+
 .detailsLeft {
-    width: 200px;
+    width: 180px;
     margin-right: 4%;
     margin-top: 3%;
     text-align: right;
     line-height: 16px;
-    font-size: 24px;
+    font-size: 22px;
+    font-weight: bold;
   }
 
 .detailsRight {
@@ -37,13 +53,10 @@ body, html {
     margin-top: 3%;
     text-align: left;
     line-height: 16px;
-    position: relative;
 }
 
 .controls {
-    position: absolute;
-    bottom: 0;
-    padding-bottom: 10%;
+    margin-top: 35vh;
     font-size: 16px;
 }
 
@@ -57,7 +70,7 @@ body, html {
     border: solid .1em $white;
 }
 
-@media (max-width: 860px){
+@media (max-width: 900px){
     body, html {
     font-size: 16px;
     margin: 0px !important;
@@ -79,15 +92,21 @@ body, html {
         width: 120px;
         margin-right: 2%;
         margin-top: 5%;
-        text-align: right;
         line-height: 16px;
+        font-size: 18px;
       }
     
     .detailsRight {
-        margin-left: 2%;
-        margin-top: 5%;
-        text-align: left;
-        line-height: 16px;
+    width: 160px;
+    margin-left: 2%;
+    margin-top: 7%;
+    text-align: left;
+    line-height: 14px;
+    }
+
+    .controls {
+        margin-top: 40vh;
+        font-size: 14px;
     }
     
     .tetris {

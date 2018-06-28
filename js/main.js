@@ -1,7 +1,9 @@
-// $(document).ready(function(){
-//   $('#modal').modal();
-//   $('#modal').modal('open'); 
-// });
+$(document).ready(function(){
+  $('#newGame').modal({'dismissible': false});
+  $('#newGame').modal('open'); 
+});
+
+let pause = true;
 
 const canvas = document.querySelector('.tetris');
 const context = canvas.getContext('2d');
@@ -21,7 +23,7 @@ const player = {
   score: 0,
   level: 1,
   dropInterval: 1000,
-  DROP_SLOW: 1000,
+  DROP_SLOW: 100,
   next: null,
 };
 
@@ -46,8 +48,8 @@ function arenaSweep(){
     if(scoreStr.length > 3){
       let num = Number(scoreStr.slice(0, scoreStr.length - 3));
       player.level = num + 1;
-      player.dropInterval = 1000 - (num * 100);
-      player.DROP_SLOW = 1000 - (num * 100);
+      player.dropInterval = 1000 - (num * 50);
+      player.DROP_SLOW = 1000 - (num * 50);
     }
   }
 }
@@ -187,13 +189,20 @@ function playerReset(){
   player.pos.y = 0;
   player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
   if(collide(arena, player)){
-    arena.forEach(row => row.fill(0));
+    pauseGame();
+    document.removeEventListener('keydown', keyListener);
+    document.removeEventListener('keyup', keyListener);
+    // clearPlayer();
+  }
+}
+
+function clearPlayer(){
+  player.dropInterval = 1000;
+    player.DROP_SLOW = 1000;
     player.score = 0;
     player.level = 1;
-    player.intervalDrop = 1000;
-    player.DROP_SLOW = 1000;
+    arena.forEach(row => row.fill(0));
     updateScore();
-  }
 }
 
 function playerRotate(dir){
@@ -227,14 +236,18 @@ function rotate(matrix, dir){
 
 let lastTime = 0;
 function update(time = 0){
-  const deltaTime = time - lastTime;
-  lastTime = time;
-  dropCounter += deltaTime;
-  if(dropCounter > player.dropInterval) {
-    playerDrop();
-  }
-  draw();
-  requestAnimationFrame(update);
+  if(!pause){
+    const deltaTime = time - lastTime;
+    lastTime = time;
+    dropCounter += deltaTime;
+    if(dropCounter > player.dropInterval) {
+      playerDrop();
+    }
+    draw();
+    requestAnimationFrame(update);
+    } else {
+      draw();
+    }
 }
 
 function updateScore(){
@@ -263,6 +276,8 @@ function keyListener(e){
       playerRotate(-1);
     } else if(e.keyCode === 87 || e.keyCode === 38){
       playerRotate(1);
+    } else if(e.keyCode === 27){
+      pauseGame();
     }
   }
 
@@ -278,10 +293,35 @@ function keyListener(e){
   }
 };
 
-document.addEventListener('keydown', keyListener);
-document.addEventListener('keyup', keyListener);
 
-playerReset();
+
 update();
-updateScore();
+
+function pauseGame(){
+  if(pause){
+    pause = false;
+    update();
+    $('#pause').modal();
+    $('#pause').modal('close');
+  } else {
+    pause = true;
+    if(collide(arena, player)){
+      $('#gameOver').modal();
+      $('#gameOver').modal('open');
+    } else {
+    $('#pause').modal({"onCloseEnd": update() });
+    $('#pause').modal('open'); 
+    }
+  }
+}
+
+function newGame(){
+  clearPlayer();
+  pause = false;
+  playerReset();
+  update();
+  updateScore();
+  document.addEventListener('keydown', keyListener);
+  document.addEventListener('keyup', keyListener);
+}
 

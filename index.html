@@ -13,15 +13,28 @@
 <body>
   <div class="wrapper">
 
-      <div id="modal" class="modal">
+      <div id="newGame" class="modal">
           <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
+            <h4>Tetris</h4>
+            <a onclick="newGame()" class="modal-close waves-effect waves-light btn" style="width:250px">New Game</a>
+            </div>
           </div>
-          <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-          </div>
-        </div>
+
+          <div id="pause" class="modal">
+              <div class="modal-content">
+                <h4>Game Paused</h4>
+                <a onclick="pauseGame()" class="modal-close waves-effect waves-light btn">Resume Game</a>
+                <a onclick="newGame()" class="modal-close waves-effect waves-light btn">Start New Game</a>
+                </div>
+              </div>
+
+              <div id="gameOver" class="modal">
+                  <div class="modal-content">
+                    <h4>Game Over</h4>
+                    <!-- <a onclick="pauseGame()" class="modal-close waves-effect waves-light btn">Resume Game</a> -->
+                    <a onclick="newGame()" class="modal-close waves-effect waves-light btn">Start New Game</a>
+                    </div>
+                  </div>
 
     <div class="detailsLeft">
       <div class="score"></div>
@@ -34,13 +47,13 @@
         <canvas class="next" width="160" height="160"></canvas>
         <br>
         <div class="controls">
-          <p><span style="font-size : 20px"><i class="fas fa-arrow-left"></i></span> Move Left</p>
-          <p><span style="font-size : 20px"><i class="fas fa-arrow-right"></i></span> Move Right</p>
-          <p><span style="font-size : 20px"><i class="fas fa-arrow-down"></i></span> Move Down</p>
-          <p><span style="font-size : 20px"><i class="fas fa-arrow-up"></i></span> Rotate Right</p>
-          <p><span style="font-size : 24px">Q</span> Rotate Left</p>
-          <p><span style="font-size : 24px">W</span> Rotate Right</p>
-          <p><span style="font-size : 20px">Esc</span> Pause Game</p>
+          <p><i class="fas fa-arrow-left"></i></span> Move Left</p>
+          <p><i class="fas fa-arrow-right"></i></span> Move Right</p>
+          <p><i class="fas fa-arrow-down"></i></span> Move Down</p>
+          <p><i class="fas fa-arrow-up"></i></span> Rotate Right</p>
+          <p><span style="font-size : 20px">Q</span> Rotate Left</p>
+          <p><span style="font-size : 20px">W</span> Rotate Right</p>
+          <p><span style="font-size: 20px">Esc</span> Pause Game</p>
         </div>
       </div>  
   </div>
