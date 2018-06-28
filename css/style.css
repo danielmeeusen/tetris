@@ -6,6 +6,7 @@ body, html {
   color: #fff;
   font-family: 'Lucida Console';
   height: 100%;
+  overflow: hidden;
   text-align: center;
   min-width: 620px;
 }
@@ -39,14 +40,30 @@ body, html {
   font-size: 18px !important;
 }
 
+.modal-content input {
+  color: white;
+  font-size: 24px !important;
+  width: 50% !important;
+  text-align: center;
+}
+
+.modal-content label {
+  font-size: 16px !important;
+}
+
 .detailsLeft {
   width: 180px;
   margin-right: 4%;
   margin-top: 3%;
   text-align: right;
   line-height: 16px;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
+}
+
+.highScores {
+  font-size: 16px;
+  margin-top: 25vh;
 }
 
 .detailsRight {
@@ -58,13 +75,13 @@ body, html {
 }
 
 .controls {
-  margin-top: 35vh;
+  margin-top: 30vh;
   font-size: 16px;
 }
 
 .tetris {
   border: solid 0.25em #fff;
-  height: 80vh;
+  height: 90vh;
   margin-bottom: 2%;
 }
 
@@ -107,12 +124,12 @@ body, html {
     line-height: 14px;
   }
   .controls {
-    margin-top: 40vh;
+    margin-top: 30vh;
     font-size: 14px;
   }
   .tetris {
     border: solid 0.25em #fff;
-    height: 80vh;
+    height: 90vh;
     margin-bottom: 3%;
     margin-top: 3%;
   }

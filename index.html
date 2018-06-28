@@ -13,32 +13,39 @@
 <body>
   <div class="wrapper">
 
-      <div id="newGame" class="modal">
-          <div class="modal-content">
-            <h4>Tetris</h4>
-            <a onclick="newGame()" class="modal-close waves-effect waves-light btn" style="width:250px">New Game</a>
-            </div>
+    <div id="newGame" class="modal">
+        <div class="modal-content">
+          <h4>Tetris</h4>
+          <a onclick="newGame()" class="modal-close waves-effect waves-light btn" style="width:250px">New Game</a>
           </div>
+        </div>
 
-          <div id="pause" class="modal">
-              <div class="modal-content">
-                <h4>Game Paused</h4>
-                <a onclick="pauseGame()" class="modal-close waves-effect waves-light btn">Resume Game</a>
-                <a onclick="newGame()" class="modal-close waves-effect waves-light btn">Start New Game</a>
-                </div>
-              </div>
+    <div id="pause" class="modal">
+        <div class="modal-content">
+          <h4>Game Paused</h4>
+          <a onclick="pauseGame()" class="modal-close waves-effect waves-light btn">Resume Game</a>
+          <a onclick="newGame()" class="modal-close waves-effect waves-light btn">Start New Game</a>
+          </div>
+        </div>
 
-              <div id="gameOver" class="modal">
-                  <div class="modal-content">
-                    <h4>Game Over</h4>
-                    <!-- <a onclick="pauseGame()" class="modal-close waves-effect waves-light btn">Resume Game</a> -->
-                    <a onclick="newGame()" class="modal-close waves-effect waves-light btn">Start New Game</a>
-                    </div>
-                  </div>
+    <div id="gameOver" class="modal">
+        <div class="modal-content">
+          <h4>Game Over</h4>
+              <label for="name">Submit Your Score</label>
+              <br><br>
+              <form id="highScore">
+              <input type="text" id="name" maxlength="5" placeholder="4 Letters only..." onfocus="this.placeholder = ''" autocomplete="off">
+              <button type="submit" id="submit" class="waves-effect waves-light btn">Submit</button>
+              </form>
+              <br><br>
+              <a onclick="newGame()" class="modal-close waves-effect waves-light btn">Start New Game</a>
+          </div>
+        </div>
 
     <div class="detailsLeft">
       <div class="score"></div>
       <div class="level"></div>
+      <div class="highScores"></div>
     </div>
 
     <canvas class="tetris" width="240" height="400"></canvas>
@@ -57,11 +64,10 @@
         </div>
       </div>  
   </div>
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
   <script src="js/main.js"></script>
-
 
 </body>
 </html>
