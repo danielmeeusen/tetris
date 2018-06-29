@@ -12,7 +12,7 @@ body, html {
     height: 100%;
     overflow: hidden;
     text-align: center;
-    min-width: 700px;
+    min-width: 720px;
 }
 
 .wrapper {
@@ -28,6 +28,7 @@ body, html {
     margin-top: 20vh !important;
     border: solid .05em $white;
     box-shadow: -15px 20px 20px rgba(0, 0, 0, .75) !important;
+    min-width: 500px;
 }
 
 .modal-content {
@@ -60,17 +61,17 @@ body, html {
   }
 
   .highScores {
-		position: absolute;
-		bottom: 0px;
-		right: 0px;
-		line-height: 10px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    line-height: 10px;
     font-size: 12px;
   }
 
 .detailsRight {
-		position: relative;
-		height: 80vh;
-		margin: 2% 2%;
+    position: relative;
+    height: 80vh;
+    margin: 2% 2%;
     text-align: left;
 }
 
@@ -80,22 +81,22 @@ body, html {
 }
 
 .controls {
-	position: absolute;
-	bottom: 20px;
-	left: 0px;
-  font-size: 12px;
-	line-height: 8px;
+    position: absolute;
+    bottom: 20px;
+    left: 0px;
+    font-size: 12px;
+    line-height: 8px;
 }
 
 .tetris {
-		height: 80vh;
+	height: 80vh;
     border: solid .25em $white;
 }
 
 @media (max-width: 900px){
     body, html {
-    font-size: 16px;
-    margin: 0px !important;
+        font-size: 16px;
+        margin: 0px !important;
     }
     
     .wrapper {
@@ -110,34 +111,28 @@ body, html {
     }
     
     .detailsLeft {
-				width: 110px;
+		width: 100px;
         margin: 5% 2%;
-				font-size: 14px;
-      }
-	
-	.score-title {
 		font-size: 14px;
-	}
-	
+      }
+		
 	  .highScores {
-			line-height: 8px;
-			font-size: 12px;
+        line-height: 8px;
   }
     
     .detailsRight {
-			width: 120px;
-			margin: 7% 2%;
-			text-align: left;
+		width: 120px;
+		margin: 7% 2%;
+		text-align: left;
     }
 	
 	  .next {
-      border: solid .1em $white;
-			height: 12vh;
+        border: solid .1em $white;
+		height: 12vh;
     }
 
     .controls {
-			line-height: 8px;
-      font-size: 12px;
+	    line-height: 8px;
     }
     
     .tetris {

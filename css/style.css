@@ -8,7 +8,7 @@ body, html {
   height: 100%;
   overflow: hidden;
   text-align: center;
-  min-width: 700px;
+  min-width: 720px;
 }
 
 .wrapper {
@@ -30,6 +30,7 @@ body, html {
   border: solid 0.05em #fff;
   -webkit-box-shadow: -15px 20px 20px rgba(0, 0, 0, 0.75) !important;
           box-shadow: -15px 20px 20px rgba(0, 0, 0, 0.75) !important;
+  min-width: 500px;
 }
 
 .modal-content {
@@ -114,16 +115,12 @@ body, html {
     width: 100%;
   }
   .detailsLeft {
-    width: 110px;
+    width: 100px;
     margin: 5% 2%;
-    font-size: 14px;
-  }
-  .score-title {
     font-size: 14px;
   }
   .highScores {
     line-height: 8px;
-    font-size: 12px;
   }
   .detailsRight {
     width: 120px;
@@ -136,7 +133,6 @@ body, html {
   }
   .controls {
     line-height: 8px;
-    font-size: 12px;
   }
   .tetris {
     height: 80vh;
