@@ -6,7 +6,7 @@ $(document).ready(function(){
     url: 'https://api.mlab.com/api/1/databases/tetrishighscores/collections/scores?s={"score":-1}&apiKey=E8dx03lqLdc5pG_K002t_lJrPOwDi1vG',
     type: "GET",
     success: (data) => {
-      let scoreLog = `<p style="font-size: 18px"><b><u>High Scores:</u></b><p>`;
+      let scoreLog = `<p><u>High Scores:</u><p>`;
       for(var i = 0; i < data.length; i++){
         scoreLog += `<p><b>${data[i].name}:</b> ${data[i].score}</p>`;
       }
@@ -309,15 +309,18 @@ function keyListener(e){
 };
 
 function pauseGame(){
-  if(pause){
+  if(pause === true){
     pause = false;
-    update();
+		update();
     $('#pause').modal();
     $('#pause').modal('close');
   } else {
     pause = true;
     if(collide(arena, player)){
-      $('#gameOver').modal({ 'dismissable': false });
+      $('#gameOver').modal({
+				'dismissable': false,
+				"onOpenEnd": function(){ $('#name').focus(); } 
+			});
       $('#gameOver').modal('open');
     } else {
     $('#pause').modal({"onCloseEnd": update() });
@@ -351,7 +354,6 @@ $('#highScore').on('submit', (e) => {
     contentType: "application/json",
     success: (data) => {
       $('#highScore').html( '<h4>Thank You!</h4>' );
-      location.reload();
     },
     error: (xhr, status, err) => {
       console.log(err);
