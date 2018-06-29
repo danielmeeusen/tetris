@@ -12,14 +12,14 @@ body, html {
     height: 100%;
     overflow: hidden;
     text-align: center;
-    min-width: 620px;
+    min-width: 700px;
 }
 
 .wrapper {
     display: inline-flex;
     justify-content: center;
-    margin: 1% 0;
-    padding: 3% 3%;
+    margin: 2% 0;
+    padding: 2% 0;
     background: $transBlack;
     box-shadow: -1px 5px 5px rgba(0, 0, 0, .75);;
 }
@@ -50,41 +50,46 @@ body, html {
 }
 
 .detailsLeft {
-    width: 180px;
-    margin-right: 4%;
-    margin-top: 3%;
-    text-align: right;
-    line-height: 16px;
-    font-size: 20px;
-    font-weight: bold;
+	position: relative;
+	height: 80vh;
+	width: 120px;
+	margin: 0% 2%;
+	text-align: right;
+	font-size: 14px;
+	font-weight: bold;
   }
 
   .highScores {
-    font-size: 14px;
-    margin-top: 25vh;
+		position: absolute;
+		bottom: 0px;
+		right: 0px;
+		line-height: 10px;
+    font-size: 12px;
   }
 
 .detailsRight {
-    width: 200px;
-    margin-left: 4%;
-    margin-top: 3%;
+		position: relative;
+		height: 80vh;
+		margin: 2% 2%;
     text-align: left;
-    line-height: 16px;
-}
-
-.controls {
-    margin-top: 30vh;
-    font-size: 16px;
-}
-
-.tetris {
-    border: solid .25em $white;
-    height: 90vh;
-    margin-bottom: 2%;
 }
 
 .next {
-    border: solid .1em $white;
+	height: 15vh;
+	border: solid .1em $white;
+}
+
+.controls {
+	position: absolute;
+	bottom: 20px;
+	left: 0px;
+  font-size: 12px;
+	line-height: 8px;
+}
+
+.tetris {
+		height: 80vh;
+    border: solid .25em $white;
 }
 
 @media (max-width: 900px){
@@ -102,44 +107,45 @@ body, html {
         margin: 0px !important;
         height: 100%;
         width: 100%;
-        min-width: 640px;
     }
     
     .detailsLeft {
-        width: 140px;
-        margin-right: 2%;
-        margin-top: 5%;
-        line-height: 16px;
-        font-size: 18px;
+				width: 110px;
+        margin: 5% 2%;
+				font-size: 14px;
       }
 	
+	.score-title {
+		font-size: 14px;
+	}
+	
 	  .highScores {
-    font-size: 14px;
-    margin-top: 25vh;
+			line-height: 8px;
+			font-size: 12px;
   }
     
     .detailsRight {
-    width: 160px;
-    margin-left: 2%;
-    margin-top: 7%;
-    text-align: left;
-    line-height: 14px;
+			width: 120px;
+			margin: 7% 2%;
+			text-align: left;
+    }
+	
+	  .next {
+      border: solid .1em $white;
+			height: 12vh;
     }
 
     .controls {
-        margin-top: 30vh;
-        font-size: 14px;
+			line-height: 8px;
+      font-size: 12px;
     }
     
     .tetris {
-        border: solid .25em $white;
-        height: 90vh;
-        margin-bottom: 3%;
-        margin-top: 3%;
+			height: 80vh;
+      border: solid .25em $white;
+      margin-bottom: 2%;
+      margin-top: 5%;
     }
     
-    .next {
-        border: solid .1em $white;
-        height: 120px;
-    }
+
 }

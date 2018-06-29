@@ -1,22 +1,24 @@
 $(document).ready(function(){
   $('#newGame').modal({'dismissible': false});
   $('#newGame').modal('open'); 
-
-  $.ajax({
-    url: 'https://api.mlab.com/api/1/databases/tetrishighscores/collections/scores?s={"score":-1}&apiKey=E8dx03lqLdc5pG_K002t_lJrPOwDi1vG',
-    type: "GET",
-    success: (data) => {
-      let scoreLog = `<p><u>High Scores:</u><p>`;
-      for(var i = 0; i < data.length; i++){
-        scoreLog += `<p><b>${data[i].name}:</b> ${data[i].score}</p>`;
-      }
-      $('.highScores').html(scoreLog);
-    },
-    error: (xhr, status, err) => {
-      console.log(err);
-    }
-  });
-});
+	});
+	
+	function loadHighScores() {
+		$.ajax({
+			url: 'https://api.mlab.com/api/1/databases/tetrishighscores/collections/scores?s={"score":-1}&apiKey=E8dx03lqLdc5pG_K002t_lJrPOwDi1vG',
+			type: "GET",
+			success: (data) => {
+				let scoreLog = `<p class="score-title"><u>High Scores:</u></p>`;
+				for(var i = 0; i <= 10; i++){
+					scoreLog += `<p>${data[i].name}: ${data[i].score}</p>`;
+				}
+				$('.highScores').html(scoreLog);
+			},
+			error: (xhr, status, err) => {
+				console.log(err);
+			}
+		});
+	}
 
 let pause = true;
 
@@ -309,27 +311,28 @@ function keyListener(e){
 };
 
 function pauseGame(){
-  if(pause === true){
-    pause = false;
-		update();
-    $('#pause').modal();
+  if(pause === true){		
+    $('#pause').modal({"onCloseStart": changeGame() });
     $('#pause').modal('close');
   } else {
-    pause = true;
     if(collide(arena, player)){
+			pause = true;
       $('#gameOver').modal({
-				'dismissable': false,
+				'dismissible': false,
 				"onOpenEnd": function(){ $('#name').focus(); } 
 			});
       $('#gameOver').modal('open');
     } else {
-    $('#pause').modal({"onCloseEnd": update() });
+    $('#pause').modal({
+      "dismissible": false,
+      "onCloseStart": changeGame() });
     $('#pause').modal('open'); 
     }
   }
 }
 
 function newGame(){
+	loadHighScores();
   clearPlayer();
   pause = false;
   playerReset();
