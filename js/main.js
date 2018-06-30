@@ -268,8 +268,8 @@ function update(time = 0){
 }
 
 function updateScore(){
-  document.querySelector('.score').innerHTML = `<p> Score: ${player.score}</p>`;
-  document.querySelector('.level').innerHTML = `<p> Level: ${player.level}</p>`;
+  document.querySelector('.score').innerHTML = `<p><b><u>Score:</u> ${player.score}</b></p>`;
+  document.querySelector('.level').innerHTML = `<p><b><u>Level:</u> ${player.level}</b></p>`;
 }
 
 const colors = [
