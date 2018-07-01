@@ -311,8 +311,9 @@ function keyListener(e){
 };
 
 function pauseGame(){
-  if(pause === true){		
-    $('#pause').modal({"onCloseStart": changeGame() });
+  if(pause === true){	
+    pause = false;	
+    $('#pause').modal({"onCloseStart": update() });
     $('#pause').modal('close');
   } else {
     if(collide(arena, player)){
@@ -323,9 +324,10 @@ function pauseGame(){
 			});
       $('#gameOver').modal('open');
     } else {
+      pause = true;
     $('#pause').modal({
       "dismissible": false,
-      "onCloseStart": changeGame() });
+      "onCloseStart": update() });
     $('#pause').modal('open'); 
     }
   }

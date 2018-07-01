@@ -18,8 +18,8 @@ body, html {
 .wrapper {
     display: inline-flex;
     justify-content: center;
-    margin-top: 2%;
-    padding-top: 2%;
+    margin: 1vh 0;
+    padding: 2vh 0;
     background: $transBlack;
     box-shadow: -1px 5px 5px rgba(0, 0, 0, .75);;
 }
@@ -87,7 +87,7 @@ body, html {
 }
 
 .tetris {
-	height: 80vh;
+	height: 90vh;
     border: solid .25em $white;
 }
 
