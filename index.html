@@ -15,21 +15,22 @@
     <div id="newGame" class="modal">
         <div class="modal-content">
           <h4>Tetris</h4>
-          <a onclick="newGame()" class="modal-close waves-effect waves-light btn" style="width:250px">New Game</a>
+          <button onclick="newGame()" id="newGameBtn" class="modal-close waves-effect waves-light btn" style="width:250px">New Game</button>
           </div>
         </div>
 
     <div id="pause" class="modal">
         <div class="modal-content">
           <h4>Game Paused</h4>
-          <a onclick="pauseGame()" class="modal-close waves-effect waves-light btn">Resume Game</a>
-          <a onclick="newGame()" class="modal-close waves-effect waves-light btn">Start New Game</a>
+          <button onclick="pauseGame()" id="pauseBtn" class="modal-close waves-effect waves-light btn">Resume Game</button>
+          <button onclick="newGame()" id="StartNewBtn" class="modal-close waves-effect waves-light btn">Start New Game</button>
           </div>
         </div>
 
     <div id="gameOver" class="modal">
         <div class="modal-content">
           <h4>Game Over</h4>
+              <div class="yourScore"></div>
               <label for="name">Submit Your Score</label>
               <br><br>
               <form id="highScore">

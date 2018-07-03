@@ -1,8 +1,10 @@
 $(document).ready(function(){
-  $('#newGame').modal({'dismissible': false});
-  $('#newGame').modal('open'); 
-	});
-  
+  $('#newGame').modal(
+    {'dismissible': false});
+  $('#newGame').modal('open');
+  $("#newGameBtn").focus() 
+  });
+    
   let highScoreMin;
 
 	function loadHighScores() {
@@ -256,6 +258,7 @@ function rotate(matrix, dir){
 
 let lastTime = 0;
 function update(time = 0){
+  $('#pause').off();
   if(!pause){
     const deltaTime = time - lastTime;
     lastTime = time;
@@ -316,7 +319,6 @@ function keyListener(e){
 function pauseGame(){
   if(pause === true){	
     pause = false;	
-    console.log(highScoreMin);
     $('#pause').modal({"onCloseStart": update() });
     $('#pause').modal('close');
   } else {
@@ -328,16 +330,27 @@ function pauseGame(){
 				"onOpenEnd": function(){ $('#name').focus(); } 
       });
       $('#gameOver').modal('open');
+      $('.yourScore').html(`<p>Your Score: ${player.score}`)
     } else {
       $('#newGame').modal({'dismissible': false});
       $('#newGame').modal('open'); 
     }
     } else {
       pause = true;
+      document.createEventListener
     $('#pause').modal({
       "dismissible": false,
       "onCloseStart": update() });
     $('#pause').modal('open'); 
+    $("#pauseBtn").focus(); 
+    $('body').on('keydown', (e)=>{
+      if(e.keyCode === 39){
+        $('#StartNewBtn').focus();
+      }
+      if(e.keyCode === 37){
+        $("#pauseBtn").focus(); 
+      }
+    })
     }
   }
 }

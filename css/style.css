@@ -19,7 +19,7 @@ body, html {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 1vh 0;
-  padding: 2vh 0;
+  padding: 1% 1% .5% 1%;
   background: rgba(0, 0, 0, 0.65);
   -webkit-box-shadow: -1px 5px 5px rgba(0, 0, 0, 0.75);
           box-shadow: -1px 5px 5px rgba(0, 0, 0, 0.75);
@@ -40,7 +40,7 @@ body, html {
   font-size: 18px !important;
 }
 
-.modal-content #name {
+.modal-content input {
   color: white;
   font-size: 24px !important;
   width: 50% !important;
@@ -51,10 +51,22 @@ body, html {
   font-size: 16px !important;
 }
 
+.btn:focus {
+  background-color: #00bfa5 !important;
+}
+
+.btn {
+  background-color: #009688 !important;
+}
+
+.yourScore {
+  padding-bottom: 0px;
+}
+
 .detailsLeft {
   width: 130px;
   position: relative;
-  height: 80vh;
+  height: 90vh;
   margin: 0% 2%;
   text-align: right;
   font-size: 16px;
@@ -62,7 +74,7 @@ body, html {
 
 .highScores {
   position: absolute;
-  bottom: 0px;
+  bottom: 35px;
   right: 0px;
   line-height: 10px;
   font-size: 14px;
@@ -70,8 +82,8 @@ body, html {
 
 .detailsRight {
   position: relative;
-  height: 80vh;
-  margin: 2% 2%;
+  height: 90vh;
+  margin: 2% 2% 0% 2%;
   text-align: left;
 }
 
@@ -82,7 +94,7 @@ body, html {
 
 .controls {
   position: absolute;
-  bottom: 20px;
+  bottom: 50px;
   left: 0px;
   font-size: 14px;
   line-height: 8px;
@@ -111,7 +123,7 @@ body, html {
   text-decoration: none;
 }
 
-@media (max-width: 900px), (max-height: 800px) {
+@media (max-width: 920px), (max-height: 800px) {
   body, html {
     font-size: 16px;
     margin: 0px !important;
@@ -154,8 +166,9 @@ body, html {
     width: 100%;
   }
   .detailsLeft {
+    height: 80vh;
     width: 110px;
-    margin: 5% 2%;
+    margin: 5% 1% 0% 0%;
     font-size: 14px;
   }
   .score-title {
@@ -166,8 +179,9 @@ body, html {
     font-size: 12px;
   }
   .detailsRight {
+    height: 80vh;
     width: 120px;
-    margin: 7% 2%;
+    margin: 5% 0% 0% 1%;
     text-align: left;
   }
   .next {
@@ -179,10 +193,10 @@ body, html {
     font-size: 12px;
   }
   .tetris {
-    height: 80vh;
+    height: 85vh;
     border: solid 0.25em #fff;
     margin-bottom: 2%;
-    margin-top: 5%;
+    margin-top: 2%;
   }
   .footer {
     font-size: 12px;
