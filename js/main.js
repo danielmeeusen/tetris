@@ -2,8 +2,10 @@ $(document).ready(function(){
   $('#newGame').modal(
     {'dismissible': false});
   $('#newGame').modal('open');
-  $("#newGameBtn").focus() 
+  $("#newGameBtn").focus();
   });
+
+  loadHighScores(); 
     
   let highScoreMin;
 
@@ -12,13 +14,6 @@ $(document).ready(function(){
 			url: 'https://api.mlab.com/api/1/databases/tetrishighscores/collections/scores?s={"score":-1}&apiKey=E8dx03lqLdc5pG_K002t_lJrPOwDi1vG',
 			type: "GET",
 			success: (data) => {
-				for(var i=0; i < data.length; i++){
-					if(data[i].score < 10){
-						deleteScore(data[i]._id);
-					} else if(data[i].name === ""){
-						deleteScore(data[i]._id);
-					}
-				}
         let scoreLog = `<p class="score-title"><u>High Scores:</u></p>`;
         highScoreMin = data[10].score;
 				for(var i = 0; i <= 10; i++){
@@ -31,20 +26,6 @@ $(document).ready(function(){
 			}
 		});
   }
-
-function deleteScore(id){
-	$.ajax({
-			url: `https://api.mlab.com/api/1/databases/tetrishighscores/collections/scores/${id}&apiKey=E8dx03lqLdc5pG_K002t_lJrPOwDi1vG`,
-			type: "DELETE",
-			success: (data) => {
-        console.log(`${id} has been deleted`);
-			},
-			error: (xhr, status, err) => {
-				console.log(err);
-			}
-		});
-	
-}
   
 let pause = true;
 
