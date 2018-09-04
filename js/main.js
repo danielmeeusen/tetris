@@ -293,14 +293,14 @@ const colors = [
 
 function keyListener(e){
   if(e.type === 'keydown'){
-    if(e.keyCode === 37){
-      playerMove(-1)
-    } else if(e.keyCode === 39){
-      playerMove(1);
-    } else if(e.keyCode === 81){
+    if(e.keyCode === 81){
       playerRotate(-1);
     } else if(e.keyCode === 87 || e.keyCode === 38){
       playerRotate(1);
+    } else if(e.keyCode === 37){
+        playerMove(-1)
+    } else if(e.keyCode === 39){
+        playerMove(1);
     } else if(e.keyCode === 27){
       pauseGame();
     }
