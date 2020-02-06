@@ -1,5 +1,6 @@
-body, html {
-  background-image: url("https://s19.postimg.cc/53hmmyd9f/stars-3000x2000-pink-cosmos-hd-7164.jpg");
+body,
+html {
+  background-image: url('https://s19.postimg.cc/53hmmyd9f/stars-3000x2000-pink-cosmos-hd-7164.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -16,20 +17,20 @@ body, html {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin: 1vh 0;
-  padding: 1% 1% .5% 1%;
+  padding: 1% 1% 0.5% 1%;
   background: rgba(0, 0, 0, 0.65);
   -webkit-box-shadow: -1px 5px 5px rgba(0, 0, 0, 0.75);
-          box-shadow: -1px 5px 5px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 5px 5px rgba(0, 0, 0, 0.75);
 }
 
 .modal {
   margin-top: 20vh !important;
   border: solid 0.05em #fff;
   -webkit-box-shadow: -15px 20px 20px rgba(0, 0, 0, 0.75) !important;
-          box-shadow: -15px 20px 20px rgba(0, 0, 0, 0.75) !important;
+  box-shadow: -15px 20px 20px rgba(0, 0, 0, 0.75) !important;
 }
 
 .modal-content {
@@ -64,7 +65,7 @@ body, html {
 }
 
 .detailsLeft {
-  width: 130px;
+  width: 160px;
   position: relative;
   height: 90vh;
   margin: 0% 2%;
@@ -113,7 +114,9 @@ body, html {
   line-height: 0px;
 }
 
-.footer a:link, a:visited, a:active {
+.footer a:link,
+a:visited,
+a:active {
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
 }
@@ -124,7 +127,8 @@ body, html {
 }
 
 @media (max-width: 920px), (max-height: 800px) {
-  body, html {
+  body,
+  html {
     font-size: 16px;
     margin: 0px !important;
   }
@@ -133,7 +137,7 @@ body, html {
     margin-top: 20vh !important;
     border: solid 0.05em #fff;
     -webkit-box-shadow: -15px 20px 20px rgba(0, 0, 0, 0.75) !important;
-            box-shadow: -15px 20px 20px rgba(0, 0, 0, 0.75) !important;
+    box-shadow: -15px 20px 20px rgba(0, 0, 0, 0.75) !important;
     min-width: 500px;
   }
   .modal-content {
@@ -156,8 +160,8 @@ body, html {
     display: -ms-inline-flexbox;
     display: inline-flex;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     background: rgba(0, 0, 0, 0.5) !important;
     padding: 0% 0%;
     background: rgba(0, 0, 0, 0.65);
